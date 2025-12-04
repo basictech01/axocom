@@ -18,12 +18,15 @@ const Finale: React.FC = () => {
            </h2>
 
            <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-             <button className="px-8 py-4 bg-primary-accent text-[#221a10] font-bold rounded-lg text-lg hover:scale-105 transition-transform">
+             <a 
+               href="mailto:pranav.pandey@axocom.in?subject=Collaboration%20Inquiry%20-%20AxoCom&body=Hello%20AxoCom%20Team%2C%0D%0A%0D%0AI%20am%20interested%20in%20collaborating%20with%20AxoCom.%0D%0A%0D%0AName%3A%20%0D%0AOrganization%2FCompany%3A%20%0D%0AEmail%3A%20%0D%0APhone%3A%20%0D%0A%0D%0ACollaboration%20Interest%3A%0D%0A%5BPlease%20describe%20your%20collaboration%20idea%20or%20inquiry%5D%0D%0A%0D%0ABest%20regards"
+               className="px-8 py-4 bg-primary-accent text-[#221a10] font-bold rounded-lg text-lg hover:scale-105 transition-transform inline-block text-center"
+             >
                Collaborate With Us
-             </button>
-             <button className="px-8 py-4 bg-white/10 text-white font-bold rounded-lg text-lg border border-white/20 backdrop-blur-md hover:bg-white/20 hover:scale-105 transition-all">
+             </a>
+             <a href="https://forms.gle/UHYhSjUmgqnTf4py6" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white/10 text-white font-bold rounded-lg text-lg border border-white/20 backdrop-blur-md hover:bg-white/20 hover:scale-105 transition-all inline-block text-center">
                Partner for Internships
-             </button>
+             </a>
            </div>
         </div>
       </div>
