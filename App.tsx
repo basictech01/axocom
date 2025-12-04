@@ -50,13 +50,9 @@ const App: React.FC = () => {
       
       {/* Sticky Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => scrollTo('prologue')}>
-           <div className="w-8 h-8 text-primary group-hover:text-white transition-colors">
-            <svg fill="currentColor" viewBox="0 0 48 48">
-               <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z"></path>
-            </svg>
-           </div>
-           <span className="font-space font-bold text-xl tracking-tighter text-white">AxoCom</span>
+        <div className="flex flex-col justify-center cursor-pointer group select-none" onClick={() => scrollTo('prologue')}>
+           <h1 className="font-serif text-3xl leading-none text-white tracking-tight group-hover:text-primary-accent transition-colors">AXOCOM</h1>
+           <span className="font-sans text-[0.65rem] uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Axolotl Communications</span>
         </div>
 
         {/* Desktop Nav */}

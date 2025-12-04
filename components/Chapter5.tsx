@@ -68,9 +68,7 @@ const Chapter5: React.FC = () => {
            
            {/* Sun */}
            <div className="absolute z-10 w-16 h-16 md:w-24 md:h-24 rounded-full bg-primary/20 shadow-[0_0_50px_10px_rgba(13,89,242,0.4)] flex items-center justify-center backdrop-blur-sm border border-primary/30">
-              <div className="w-8 h-8 md:w-10 md:h-10 text-primary animate-pulse">
-                <svg fill="currentColor" viewBox="0 0 48 48"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z"></path></svg>
-              </div>
+              <span className="font-serif text-3xl md:text-5xl text-primary font-bold animate-pulse">A</span>
            </div>
 
            {/* Orbit Rings - Responsive Sizes utilizing CSS min() */}
