@@ -16,15 +16,16 @@ const Chapter1: React.FC<Chapter1Props> = ({ onNext }) => {
       {/* Main Content Area - Flex Grow to push button down */}
       <div className="flex-grow flex flex-col justify-center items-center z-10 w-full max-w-6xl text-center gap-8 md:gap-12">
         <div className="flex flex-col gap-6 animate-fade-in-up items-center">
-          <span className="text-primary font-mono text-sm tracking-[0.3em] uppercase bg-white/5 px-4 py-1 rounded-full border border-white/10">Phase 01</span>
-          <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tighter uppercase drop-shadow-2xl">
-             Who We Are
+          <h1 className="text-5xl md:text-7xl font-work font-black leading-tight tracking-tighter uppercase drop-shadow-2xl">
+             Our Story
           </h1>
           <div className="h-1 w-32 bg-primary mx-auto"></div>
           <h2 className="text-lg md:text-2xl font-medium leading-relaxed text-gray-100 max-w-4xl mx-auto drop-shadow-lg">
-            AxoCom is not just a media company. We are a <span className="text-primary font-black bg-white/5 px-2 rounded">Tech-First Media Company</span> building the future of communication. 
-            A place where journalists, engineers, creators, strategists, lawyers, and researchers unite to reimagine how stories are built, spread, and scaled.
+            AxoCom is not just a media company. We are a <span className="text-primary-accent font-bold rounded">Tech-First Media Company</span> building the future of communication.
           </h2>
+          <p className="text-sm md:text-base font-light leading-relaxed text-gray-300 max-w-3xl mx-auto">
+            We are the intersection of media and deep technology. AxoCom is where journalists, engineers, creators, strategists, lawyers, and researchers unite to reimagine how stories are built, spread, and scaled using The AI Core—our proprietary engine powered by advanced data analytics. We are here to engineer the future of how stories are told and consumed.
+          </p>
         </div>
       </div>
       

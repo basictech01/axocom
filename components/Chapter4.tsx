@@ -1,114 +1,119 @@
 import React from 'react';
 
-const Chapter4: React.FC = () => {
+const Planet = ({ 
+  sizeClass,
+  duration, 
+  direction = 'normal',
+  image,
+  label,
+  positionClass 
+}: { 
+  sizeClass: string,
+  duration: string, 
+  direction?: 'normal' | 'reverse',
+  image: string,
+  label: string,
+  positionClass: string
+}) => {
   return (
-    <div className="min-h-[100dvh] w-full bg-background-dark text-white font-space flex flex-col items-center justify-center py-20 px-4">
-      <div className="max-w-[1400px] w-full px-4 lg:px-8">
-        
-        <div className="text-center mb-12 md:mb-16 flex flex-col items-center">
-           <span className="text-cyan-400 font-mono text-sm tracking-[0.3em] uppercase bg-cyan-400/10 px-3 py-1 rounded-full mb-4">Phase 04</span>
-           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-4">
-             The AI Core
-           </h2>
-           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
-             An interactive showcase of the AxoCom artificial intelligence engine, from data ingestion to narrative creation.
-           </p>
+    <div 
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none ${sizeClass}`}
+        style={{ 
+          animation: `orbit-rotate ${duration} linear infinite`,
+          animationDirection: direction
+        }}
+    >
+      <div className={`absolute ${positionClass} pointer-events-auto group cursor-pointer`}>
+        <div 
+          className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-cover bg-center border-2 border-white/10 shadow-[0_0_20px_0_rgba(255,255,255,0.1)] transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_0_30px_5px_rgba(255,255,255,0.3)] group-hover:border-white/50"
+          style={{ 
+            backgroundImage: `url("${image}")`,
+            animation: `orbit-rotate ${duration} linear infinite`, // Counter-rotate to keep image upright
+            animationDirection: direction === 'normal' ? 'reverse' : 'normal'
+          }}
+        ></div>
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-lg text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-white/10 z-20">
+          {label}
         </div>
-
-        {/* 
-           Layout:
-           - XL+ screens: 3 Columns (Left features, Center Brain, Right features)
-           - Smaller screens: Stacked layout for readability
-        */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 items-center">
-          
-          {/* Left Column */}
-          <div className="flex flex-col gap-4">
-             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
-               <div className="flex xl:flex-row flex-col xl:justify-between items-center xl:mb-2">
-                  <div className="xl:text-right text-center flex-1 xl:mr-4 xl:order-1 order-2">
-                    <h3 className="font-bold text-lg">Inputs</h3>
-                    <p className="text-gray-400 text-sm">News, Social, Signals</p>
-                  </div>
-                  <span className="material-symbols-outlined text-4xl text-cyan-400 group-hover:scale-110 transition-transform xl:order-2 order-1 mb-3 xl:mb-0">database</span>
-               </div>
-             </div>
-             
-             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
-               <div className="flex xl:flex-row flex-col xl:justify-between items-center xl:mb-2">
-                  <div className="xl:text-right text-center flex-1 xl:mr-4 xl:order-1 order-2">
-                    <h3 className="font-bold text-lg">Pipelines</h3>
-                    <p className="text-gray-400 text-sm">Processing, Tagging, Clustering</p>
-                  </div>
-                  <span className="material-symbols-outlined text-4xl text-cyan-400 group-hover:scale-110 transition-transform xl:order-2 order-1 mb-3 xl:mb-0">filter_alt</span>
-               </div>
-             </div>
-
-             {/* Knowledge Graph - Moved here for mobile/tablet stacked layout */}
-             <div className="xl:hidden p-4 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
-                <div className="flex flex-col items-center mb-2">
-                   <span className="material-symbols-outlined text-4xl text-purple-500 group-hover:scale-110 transition-transform mb-3">share</span>
-                   <div className="text-center flex-1">
-                     <h3 className="font-bold text-lg">Knowledge Graph</h3>
-                     <p className="text-gray-400 text-sm">Relationship Maps</p>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-          {/* Center Brain */}
-          <div className="relative flex justify-center items-center py-8 order-first xl:order-none">
-             <div className="w-full aspect-square max-w-[300px] lg:max-w-[400px] xl:max-w-[500px] relative">
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-blue-500/20 blur-[60px] rounded-full animate-pulse"></div>
-                <div className="w-full h-full bg-contain bg-center bg-no-repeat relative z-10 transition-transform hover:scale-105 duration-700"
-                     style={{
-                       backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjaO-klaQpx6b7-0-izaroBLGJslGX4ybgAJACw9hH7p2p2ZOPf6QSYiTHDokkJWljwlmufqaSBWFS3xm2t-yf-MYzvQC1IEEb9gISlgrjpW2FK-oQ6Yv0rXC55F6WRqpF-VnsS0SvHCTPgBhxGJMvH8eRFFuyahHZx0e51PcOqIEuuqm8lIkRqcsf2BTI9fpSzpRL9kJO9IXCo42Fyv9SwgZKXNMbn5U77bTNTh15Z1i0Y-3ZZvm7Sbkz7BK2bRyiPnKK_-i6tVYH")`
-                     }}
-                ></div>
-             </div>
-          </div>
-
-          {/* Right Column */}
-          <div className="flex flex-col gap-4">
-             {/* Knowledge Graph - Visible only on XL+ */}
-             <div className="hidden xl:block p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
-                <div className="flex items-center mb-2">
-                   <span className="material-symbols-outlined text-4xl text-purple-500 mr-4 group-hover:scale-110 transition-transform">share</span>
-                   <div className="text-left flex-1">
-                     <h3 className="font-bold text-lg">Knowledge Graph</h3>
-                     <p className="text-gray-400 text-sm">Relationship Maps</p>
-                   </div>
-                </div>
-             </div>
-
-             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
-                <div className="flex xl:flex-row flex-col items-center xl:mb-2">
-                   <span className="material-symbols-outlined text-4xl text-purple-500 xl:mr-4 group-hover:scale-110 transition-transform mb-3 xl:mb-0">psychology</span>
-                   <div className="xl:text-left text-center flex-1">
-                     <h3 className="font-bold text-lg">AI Engines</h3>
-                     <p className="text-gray-400 text-sm">Creative tools, Sentiment Analysis</p>
-                   </div>
-                </div>
-             </div>
-
-             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
-                <div className="flex xl:flex-row flex-col items-center xl:mb-2">
-                   <span className="material-symbols-outlined text-4xl text-cyan-400 xl:mr-4 group-hover:scale-110 transition-transform mb-3 xl:mb-0">dashboard</span>
-                   <div className="xl:text-left text-center flex-1">
-                     <h3 className="font-bold text-lg">Outputs</h3>
-                     <p className="text-gray-400 text-sm">Assets, Dashboards, Campaigns</p>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-        </div>
-
-
       </div>
     </div>
   );
 };
 
-export default Chapter4;
+const Chapter5: React.FC = () => {
+  return (
+    <div className="min-h-[100dvh] w-full relative bg-background-dark overflow-hidden flex flex-col items-center justify-center font-space py-6 md:py-10 px-4">
+      
+      {/* Background Gradients & Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(13,89,242,0.15),rgba(255,255,255,0))]"></div>
+      <div className="absolute inset-0 z-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/hexellence.png')]"></div>
+
+      {/* Content Text */}
+      <div className="relative z-20 text-center max-w-4xl px-4 mb-6 md:mb-8 pointer-events-none flex flex-col items-center">
+        <h1 className="text-5xl md:text-7xl font-work font-black leading-tight tracking-tighter uppercase drop-shadow-2xl">
+          Our Media Universe
+        </h1>
+        <p className="text-lg md:text-2xl text-gray-300 font-light drop-shadow-md">
+          We operate stories. We shape narratives. We run media ecosystems.
+        </p>
+      </div>
+
+      {/* Solar System */}
+      <div className="relative w-full max-w-[90vw] md:max-w-[800px] aspect-square flex items-center justify-center z-10">
+           
+           {/* Sun */}
+           <div className="absolute z-10 w-16 h-16 md:w-24 md:h-24 rounded-full bg-primary/20 shadow-[0_0_50px_10px_rgba(13,89,242,0.4)] flex items-center justify-center backdrop-blur-sm border border-primary/30">
+              <span className="font-serif text-3xl md:text-5xl text-primary font-bold animate-pulse">A</span>
+           </div>
+
+           {/* Orbit Rings - Responsive Sizes */}
+           <div className="absolute border border-dashed border-white/20 rounded-full w-[160px] h-[160px] md:w-[280px] md:h-[280px]"></div>
+           <div className="absolute border border-dashed border-white/20 rounded-full w-[240px] h-[240px] md:w-[440px] md:h-[440px]"></div>
+           <div className="absolute border border-dashed border-white/20 rounded-full w-[340px] h-[340px] md:w-[600px] md:h-[600px]"></div>
+           <div className="absolute border border-dashed border-white/20 rounded-full w-[440px] h-[440px] md:w-[760px] md:h-[760px]"></div>
+
+           {/* Planets - Each on its own orbit, matching the ring sizes */}
+           {/* Hillsquills - Innermost orbit (280px desktop / 160px mobile) */}
+           <Planet 
+             sizeClass="w-[160px] h-[160px] md:w-[280px] md:h-[280px]"
+             duration="25s" 
+             image="https://lh3.googleusercontent.com/aida-public/AB6AXuDu5dvPEqFwitHjRZwcorDkVJtPAJtjLbjc5imiJf8KTt11FBi8JsFuxoMua19m9uvHjbmbcjUOaWggorYyNTOhAlyZwP3OJgKPnZAF6TMksSFtKIZo5t3T_eCbYnXwdEIqbTuBtkgFs0_LtzAkBwAVyNKwvFTe9M26HVPCMzX8IFtGG2m-F53JTIPqpfGJtlThNY1E28uLKkbVlfYrg26cCmXz_viZ3kKbwGzuxC1akxXoAvrDIgPL3jLZZ_1d-t1WHtN_CDF_g5QZ"
+             label="Hillsquills"
+             positionClass="top-0 left-1/2"
+           />
+
+           {/* India7Live - Second orbit (440px desktop / 240px mobile) */}
+            <Planet 
+             sizeClass="w-[240px] h-[240px] md:w-[440px] md:h-[440px]"
+             duration="40s" 
+             direction="reverse"
+             image="https://lh3.googleusercontent.com/aida-public/AB6AXuC1h9oex_tNDIO7KQyiFoM0BJb1ZIY7JqfkJ9QmeeHSPDLW6kkaa1GDrN3DQkmqFAO9NAZWoFp2wcXcLCEOpdnsSHO9z6zgCGYzSE_ZcMNDx0CLh809vPrm2lpGHkYU_q97jnpe93Ip1sEgQm8MslsXUc09G6MFS5Mbf7lOGctYBnHCdfxEWmOBxcDw0rEatLk-oGXsVk4fBU6m-gc49AC9SgTbm1WBoiItxYGsOcS4VUVqEW6si3dW3OBmHdeXbEF_1aKJErXLiO5Y"
+             label="India7Live"
+             positionClass="top-0 left-1/2"
+           />
+           
+           {/* Tehelka India - Third orbit (600px desktop / 340px mobile) */}
+           <Planet 
+             sizeClass="w-[340px] h-[340px] md:w-[600px] md:h-[600px]"
+             duration="55s"
+             image="https://lh3.googleusercontent.com/aida-public/AB6AXuCTg-a0Uk-JvVkLfMFkrNPlQBPzwWLo5_I8Po7VEbv7I1gejGbUb81A_D6npCvcqEkIS_5CMbNdqhNptBTWJru0U3PTWsPFyoBZyqMHB-cCSYbae1cvGbz9tyNihKWQL8KGH1OW9To12LUBqJR4VH0dWFatN5eBnJLnMMyKt7RRGuteC_9kKcSCnzS8bqvQHH39mtbk9YzNyWmGlwVOBxRQf87UqAplD5AcdnF2CdDQCQbhfMiLlCCxvEvzJ3gVIIYpoR5VFS8NufVC"
+             label="Tehelka India"
+             positionClass="top-0 left-1/2"
+           />
+
+           {/* Lawmedy - Outermost orbit (760px desktop / 440px mobile) */}
+           <Planet 
+             sizeClass="w-[440px] h-[440px] md:w-[760px] md:h-[760px]"
+             duration="70s" 
+             direction="reverse"
+             image="https://lh3.googleusercontent.com/aida-public/AB6AXuCecd394l5PLk37IsiuahGjOsxYvsc37P2t-cKmRc_IBZGGKFTGtD8IWRn0qJGZqdgzrxS73vgOec-tXhpThqS_mzvW5mURYeE2cDvav-aoAsis6h_dcsg0sX0EMBq5bx_TqsDb15uyqQqrgHDE5Y2Yq-E4ctz-vAmcFXeBqP-bU2SqcXsFFfDS2jRrM0AvVj0HjheZicr4utbo0tmq21Vf60RBdPLN0yeO4yLkHJR6Cd2k9cZuogFvjHVtkqIX2zrZeaDAmN1WJcTy"
+             label="Lawmedy"
+             positionClass="top-0 left-1/2"
+           />
+      </div>
+
+    </div>
+  );
+};
+
+export default Chapter5;

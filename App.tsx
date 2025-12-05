@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Prologue from './components/Prologue';
 import Chapter1 from './components/Chapter1';
 import Chapter2 from './components/Chapter2';
+import Chapter5 from './components/Chapter5';
 import Chapter3 from './components/Chapter3';
 import Chapter4 from './components/Chapter4';
-import Chapter5 from './components/Chapter5';
 import Chapter6 from './components/Chapter6';
 import Finale from './components/Finale';
+import './index.css';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('prologue');
@@ -49,24 +50,27 @@ const App: React.FC = () => {
       
       {/* Sticky Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background-dark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div className="flex flex-col justify-center cursor-pointer group select-none" onClick={() => scrollTo('prologue')}>
-           <h1 className="font-serif text-3xl leading-none text-white tracking-tight group-hover:text-primary-accent transition-colors">AXOCOM</h1>
-           <span className="font-sans text-[0.65rem] uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Axolotl Communications</span>
+        <div className="flex items-center cursor-pointer group select-none" onClick={() => scrollTo('prologue')}>
+           <img 
+             src="/images/logo.png" 
+             alt="AxoCom Logo" 
+             className="h-10 md:h-12 drop-shadow-lg group-hover:opacity-80 transition-opacity"
+           />
         </div>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-1">
-          {['1', '2', '3', '4', '5', '6'].map((num) => (
+          {['About Us', 'Services', 'Mote', 'Media', 'Why', 'Team'].map((title, num) => (
             <button
-              key={num}
-              onClick={() => scrollTo(`chapter${num}`)}
+              key={num+1}
+              onClick={() => scrollTo(`chapter${num+1}`)}
               className={`px-3 py-1 text-sm font-mono font-bold transition-all rounded-md ${
-                activeSection === `chapter${num}` 
+                activeSection === `chapter${num+1}` 
                   ? 'text-primary bg-primary/10' 
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
               }`}
             >
-              0{num}
+              {title}
             </button>
           ))}
           <div className="w-px h-6 bg-white/10 mx-2"></div>

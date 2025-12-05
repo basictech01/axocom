@@ -1,53 +1,113 @@
 import React from 'react';
 
-interface Chapter3Props {
-  onNext: () => void;
-}
-
-const Chapter3: React.FC<Chapter3Props> = ({ onNext }) => {
-  const items = [
-    { icon: 'hub', title: 'Strategy' },
-    { icon: 'monitoring', title: 'Foresight' },
-    { icon: 'share', title: 'Knowledge Graphs' },
-    { icon: 'auto_awesome', title: 'Generative Content' },
-    { icon: 'groups', title: 'Social Intelligence' },
-    { icon: 'campaign', title: 'Political Communication' },
-    { icon: 'history_edu', title: 'Brand Narratives' },
-    { icon: 'rocket_launch', title: 'High-Impact Campaigns' },
-  ];
-
+const Chapter4: React.FC = () => {
   return (
-    <div className="min-h-[100dvh] w-full bg-background-dark flex flex-col items-center justify-center p-4 md:p-10 font-space py-20">
-      <div className="max-w-[1400px] w-full flex flex-col gap-8">
+    <div className="min-h-[100dvh] w-full bg-background-dark text-white font-space flex flex-col items-center justify-center py-20 px-4">
+      <div className="max-w-[1400px] w-full px-4 lg:px-8">
         
-        {/* Hero Card */}
-        <div className="relative w-full overflow-hidden rounded-2xl min-h-[300px] md:min-h-[400px] shadow-2xl shadow-primary/20 flex flex-col justify-end group">
-           <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{
-                  backgroundImage: `linear-gradient(0deg, rgba(13, 89, 242, 0.4) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQ89hlhzi9_G8_IxAh2Aty9M_YzDCOdxmBHAUo2LjCC4T1FSg_HqIJ3KSrWsUGdhWkV20UkFQz1j8oVGgxV8BUkXtbxKovWflZ3gfW6y0ntEQ7he7ZWi_pWs_BBOd2fok7zFyKbODywsLV1IG-B-SpW6PoCxNcCkEa54I36HUAfrnZ50PhQ8sErXVE8gEBM7QfHtCel23mH-04m-xFhwWu9yUUIml_Wx3LS8qAupmWdUHMc3PKOc_QcInHKpVTbcrHIrm4_l4WmEZ_")`
-                }}
-           ></div>
-           <div className="relative z-10 p-6 md:p-10">
-             <span className="text-white/80 font-mono text-xs md:text-sm tracking-[0.3em] uppercase block mb-3">Phase 03</span>
-             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">What We Are Building</h2>
-           </div>
+        <div className="text-center mb-12 md:mb-16 flex flex-col items-center">
+           <h2 className="text-5xl md:text-7xl font-work font-black leading-tight tracking-tighter uppercase drop-shadow-2xl">
+             The AI Core
+           </h2>
+           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+             An interactive showcase of the AxoCom artificial intelligence engine, from data ingestion to narrative creation.
+           </p>
         </div>
 
-        {/* Grid 
-            Scales from 1 -> 2 -> 3 -> 4 columns to avoid squashed cards
+        {/* 
+           Layout:
+           - XL+ screens: 3 Columns (Left features, Center Brain, Right features)
+           - Smaller screens: Stacked layout for readability
         */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-          {items.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-4 p-5 md:p-6 rounded-xl border border-primary/20 bg-primary/10 hover:bg-primary/20 transition-all cursor-default shadow-lg shadow-black/20">
-              <span className="material-symbols-outlined text-primary text-3xl shrink-0">{item.icon}</span>
-              <h3 className="text-white text-base md:text-lg font-bold leading-tight">{item.title}</h3>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 items-center">
+          
+          {/* Left Column */}
+          <div className="flex flex-col gap-4">
+             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
+               <div className="flex xl:flex-row flex-col xl:justify-between items-center xl:mb-2">
+                  <div className="xl:text-right text-center flex-1 xl:mr-4 xl:order-1 order-2">
+                    <h3 className="font-bold text-lg">Inputs</h3>
+                    <p className="text-gray-400 text-sm">News, Social, Signals</p>
+                  </div>
+                  <span className="material-symbols-outlined text-4xl text-cyan-400 group-hover:scale-110 transition-transform xl:order-2 order-1 mb-3 xl:mb-0">database</span>
+               </div>
+             </div>
+             
+             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
+               <div className="flex xl:flex-row flex-col xl:justify-between items-center xl:mb-2">
+                  <div className="xl:text-right text-center flex-1 xl:mr-4 xl:order-1 order-2">
+                    <h3 className="font-bold text-lg">Pipelines</h3>
+                    <p className="text-gray-400 text-sm">Processing, Tagging, Clustering</p>
+                  </div>
+                  <span className="material-symbols-outlined text-4xl text-cyan-400 group-hover:scale-110 transition-transform xl:order-2 order-1 mb-3 xl:mb-0">filter_alt</span>
+               </div>
+             </div>
+
+             {/* Knowledge Graph - Moved here for mobile/tablet stacked layout */}
+             <div className="xl:hidden p-4 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
+                <div className="flex flex-col items-center mb-2">
+                   <span className="material-symbols-outlined text-4xl text-purple-500 group-hover:scale-110 transition-transform mb-3">share</span>
+                   <div className="text-center flex-1">
+                     <h3 className="font-bold text-lg">Knowledge Graph</h3>
+                     <p className="text-gray-400 text-sm">Relationship Maps</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+
+          {/* Center Brain */}
+          <div className="relative flex justify-center items-center py-8 order-first xl:order-none">
+             <div className="w-full aspect-square max-w-[300px] lg:max-w-[400px] xl:max-w-[500px] relative">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-blue-500/20 blur-[60px] rounded-full animate-pulse"></div>
+                <div className="w-full h-full bg-contain bg-center bg-no-repeat relative z-10 transition-transform hover:scale-105 duration-700"
+                     style={{
+                       backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjaO-klaQpx6b7-0-izaroBLGJslGX4ybgAJACw9hH7p2p2ZOPf6QSYiTHDokkJWljwlmufqaSBWFS3xm2t-yf-MYzvQC1IEEb9gISlgrjpW2FK-oQ6Yv0rXC55F6WRqpF-VnsS0SvHCTPgBhxGJMvH8eRFFuyahHZx0e51PcOqIEuuqm8lIkRqcsf2BTI9fpSzpRL9kJO9IXCo42Fyv9SwgZKXNMbn5U77bTNTh15Z1i0Y-3ZZvm7Sbkz7BK2bRyiPnKK_-i6tVYH")`
+                     }}
+                ></div>
+             </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="flex flex-col gap-4">
+             {/* Knowledge Graph - Visible only on XL+ */}
+             <div className="hidden xl:block p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
+                <div className="flex items-center mb-2">
+                   <span className="material-symbols-outlined text-4xl text-purple-500 mr-4 group-hover:scale-110 transition-transform">share</span>
+                   <div className="text-left flex-1">
+                     <h3 className="font-bold text-lg">Knowledge Graph</h3>
+                     <p className="text-gray-400 text-sm">Relationship Maps</p>
+                   </div>
+                </div>
+             </div>
+
+             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
+                <div className="flex xl:flex-row flex-col items-center xl:mb-2">
+                   <span className="material-symbols-outlined text-4xl text-purple-500 xl:mr-4 group-hover:scale-110 transition-transform mb-3 xl:mb-0">psychology</span>
+                   <div className="xl:text-left text-center flex-1">
+                     <h3 className="font-bold text-lg">AI Engines</h3>
+                     <p className="text-gray-400 text-sm">Creative tools, Sentiment Analysis</p>
+                   </div>
+                </div>
+             </div>
+
+             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
+                <div className="flex xl:flex-row flex-col items-center xl:mb-2">
+                   <span className="material-symbols-outlined text-4xl text-cyan-400 xl:mr-4 group-hover:scale-110 transition-transform mb-3 xl:mb-0">dashboard</span>
+                   <div className="xl:text-left text-center flex-1">
+                     <h3 className="font-bold text-lg">Outputs</h3>
+                     <p className="text-gray-400 text-sm">Assets, Dashboards, Campaigns</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+
         </div>
+
 
       </div>
     </div>
   );
 };
 
-export default Chapter3;
+export default Chapter4;

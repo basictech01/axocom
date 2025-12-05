@@ -77,8 +77,11 @@ const Careers: React.FC = () => {
       {/* Navigation Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background-dark/90 backdrop-blur-md border-b border-white/5">
         <a href="/" className="flex flex-col justify-center cursor-pointer group select-none">
-           <h1 className="font-serif text-3xl leading-none text-white tracking-tight group-hover:text-primary-accent transition-colors">AXOCOM</h1>
-           <span className="font-sans text-[0.65rem] uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Axolotl Communications</span>
+          <img 
+             src="/images/logo.png" 
+             alt="AxoCom Logo" 
+             className="h-10 md:h-12 drop-shadow-lg group-hover:opacity-80 transition-opacity"
+           />
         </a>
         
         <a 
@@ -172,7 +175,7 @@ const Careers: React.FC = () => {
           {/* Top Section: Branding and Social Links */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col items-center md:items-start">
-              <h2 className="font-serif text-2xl text-white mb-1">AXOCOM</h2>
+              <h2 className=" text-2xl text-white mb-1" style={{ fontFamily: 'HelloParis' }}>AXOCOM</h2>
               <span className="text-xs uppercase tracking-widest text-gray-500">Axolotl Communications</span>
             </div>
             

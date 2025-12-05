@@ -13,10 +13,10 @@ const Prologue: React.FC<PrologueProps> = ({ onNext }) => {
       
       <div className="flex flex-col gap-8 items-center justify-center text-center px-6 max-w-5xl z-10 animate-fade-in-up">
         <div className="flex flex-col items-center">
-          <h1 className="font-serif text-white text-6xl md:text-8xl lg:text-9xl font-medium leading-none tracking-tight drop-shadow-2xl">
-            AXOCOM
+          <h1 className="font-serif text-white text-6xl md:text-8xl lg:text-9xl font-medium leading-none tracking-tight drop-shadow-2xl" style={{ fontFamily: 'HelloParis' }}>
+            AxoCom
           </h1>
-          <p className="font-sans text-gray-300 text-sm md:text-xl uppercase tracking-[0.2em] mt-2 md:mt-4">
+          <p className="font-sans text-gray-300 text-sm md:text-l uppercase tracking-[0.2em] mt-1 md:mt-2">
             Axolotl Communications
           </p>
         </div>
@@ -24,8 +24,9 @@ const Prologue: React.FC<PrologueProps> = ({ onNext }) => {
         <div className="h-1 w-24 bg-primary mx-auto rounded-full mt-4"></div>
         
         <p className="mx-auto max-w-2xl text-lg md:text-2xl font-light text-gray-200 leading-relaxed drop-shadow-md">
-          Media is changing. AI is rising. Narratives are evolving faster than ever. 
-          Amidst this chaos, a new kind of media company is born.
+         <span className="italic">“The medium is the message” </span>—and AI is taking over the pen<br></br>
+AI is reshaping the entire media universe.
+AxoCom isn’t adapting to this future—we’re engineering it.
         </p>
       </div>
       

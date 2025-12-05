@@ -1,114 +1,52 @@
 import React from 'react';
 
-interface LeaderProps {
-  name: string;
-  role: string;
-  description: string;
-  image: string;
-  alt: string;
+interface Chapter3Props {
+  onNext: () => void;
 }
 
-const LeaderCard: React.FC<LeaderProps> = ({ name, role, description, image, alt }) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
-
-  return (
-    <div 
-      className="group relative flex flex-col justify-end overflow-hidden rounded-2xl aspect-[3/4] sm:aspect-[4/5] md:aspect-[3/4] bg-cover bg-center transition-transform duration-500 hover:scale-[1.02] cursor-pointer"
-      style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0,0,0,0) 100%), url("${image}")` }}
-      role="img"
-      aria-label={alt}
-      onClick={() => setIsExpanded(!isExpanded)}
-      onMouseEnter={() => window.innerWidth >= 1024 && setIsExpanded(true)}
-      onMouseLeave={() => window.innerWidth >= 1024 && setIsExpanded(false)}
-    >
-      <div className="relative z-10 p-4 sm:p-5 md:p-6 lg:p-8">
-        <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold leading-tight text-white mb-1">{name}</h3>
-        <p className="font-sans text-primary text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4">{role}</p>
-        <div className={`h-0.5 w-12 bg-primary mb-3 sm:mb-4 transition-all duration-300 ${isExpanded ? 'w-full' : 'lg:group-hover:w-full'}`}></div>
-        <p className={`font-sans text-gray-300 text-xs sm:text-sm leading-relaxed transition-all duration-500 ${isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:translate-y-0'}`}>
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-};
-
-const Chapter2: React.FC = () => {
-  const leaders: LeaderProps[] = [
-    {
-      name: "Basant Rawat",
-      role: "The Visionary",
-      description: "With a storyteller's heart, Basant crafts the narratives that define our future, seeing the world not as it is, but as it could be.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAkKrqmDVeSWYWagweLYzW60RLO4W6Z9iqTbVcF8o6wnzFZUVMTutb4qLSE7BX1hPhpCoaTu5kWgKxsGu5m3TU2kpwWkB0_ajbPuDowzmZZUIsHydCBJultICp-Uukcn9XLmVuKge7O87oDFkSvJYhO5kSlPIdXCX2Gbn5fqoknA_C4SB7cQ_FSOla1hA0WxeOgZRC6Np1UZbO4cGuZHG7X6sdTZ3I_PTxym81iHXhi5Oupftw6KVnMfwVCbF4Oj4XI4mbGJdPANXwv",
-      alt: "Portrait of Basant Rawat"
-    },
-    {
-      name: "Parantap Bhatt",
-      role: "The Strategist",
-      description: "Parantap architects our path forward, piece by piece, turning abstract ideas into tangible, market-defining realities.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCmwXEWsCtVvQNVb2pAc3n2_9tVhDsif6xxpMf6C6T1b0EL5D4jU2XGpnucEjCr3Y1Zv35vpts2FgfWE1FucxxXkX_MYC0JfSwdXhXMLW9vQCGqmOJPb1dCsfLpdHhFFPEUtZJ7kJi9V9k4Vjip0Clbr31Rcg6jyBKViQpmZLa3paRZEvzg8RPOmYQKom5xX40J789C7j8mJIvROq3dOALYi8OPfcrxXIuNA6fxo7pv0KRYTi71_3UoIs7nh4ZhR9LrhkocPLK9n6Ys",
-      alt: "Portrait of Parantap Bhatt"
-    },
-    {
-      name: "Akash Sharma",
-      role: "The Advocate",
-      description: "Akash champions our mission with unwavering integrity, ensuring every decision is made with purpose and principle.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCAklA22a0kQV6DU3tKNhNT2f9Y4_BLuIuOf7R0yVpTFN9oezJhWqLFvtd8amABIeVbR9qHmyh9QQzvBLVgjMvPcpy4v62mJigrCaY-vZDrD2PJYrCp_sWM4EdeoqeHpFNhGr4YShmHZhMMMTlh31qdO3X6eFbUkaOz8B-51bR488w6AENHngegB8QXkwwTnRKVPy1JgtKxJ3FhAJIbz659c8kHyZbVcc-xneGIV0FDNiykODj69OKE-jHI-AsusHkd03D682iW4Kxt",
-      alt: "Portrait of Akash Sharma"
-    },
-    {
-      name: "Pranav Pandey",
-      role: "The Analyst",
-      description: "Finding clarity in chaos, Pranav deciphers the complex data that guides our every move, revealing the stories hidden in the numbers.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB7FapDQwd9Rc7gnR0Bg1RflhZpOjrh2PS_MZUbn4T8azw-1kPTHpLdC9BFOi5FYA9-npLU1xA5-npPob1t9ebxGBCC6Lub3-Fw4M7_PRme1Hl8LXdJDXbAjUta-3f6hoQEbkje_L5E2TJQRSsbrEG7qtosZoU_lqWe6Ab3cijN7y5TOTSO2l9v4uNwliCoTjvxWkL1x6TmiXk9O5cjlHfYPYVzocWzeBuGRGXaCqFuumvqY2RjIx3ouQmQxBQylRQFY7zu3PYiNiTM",
-      alt: "Portrait of Pranav Pandey"
-    }
+const Chapter3: React.FC<Chapter3Props> = ({ onNext }) => {
+  const items = [
+    { icon: 'hub', title: 'Strategy' },
+    { icon: 'monitoring', title: 'Data insights' },
+    { icon: 'share', title: 'Knowledge Graphs' },
+    { icon: 'auto_awesome', title: 'AI Generated Content' },
+    { icon: 'groups', title: 'Social Media Management' },
+    { icon: 'campaign', title: 'Public Relation Communication' },
+    { icon: 'history_edu', title: 'Brand Building' },
+    { icon: 'rocket_launch', title: 'Campaign Management' },
   ];
 
   return (
-    <div className="min-h-[100dvh] w-full bg-background-light dark:bg-background-dark py-20 px-4 md:px-10 lg:px-20 xl:px-40 flex flex-col justify-center">
-      <div className="max-w-[1400px] mx-auto w-full">
-        <div className="flex flex-col gap-6 text-center mb-16 items-center">
-          <span className="text-primary font-mono text-sm tracking-[0.3em] uppercase bg-primary/10 px-3 py-1 rounded-full">Phase 02</span>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-black dark:text-white">
-            The Spark
-          </h2>
-          <p className="font-sans text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Meet the visionaries who ignited the spark and continue to fuel the fire of innovation at AxoCom. 
-            Each a master in their own right, together they form the core of our narrative.
-          </p>
+    <div className="min-h-[100dvh] w-full bg-background-dark flex flex-col items-center justify-center p-4 md:p-10 font-space py-20">
+      <div className="max-w-[1400px] w-full flex flex-col gap-8">
+        
+        {/* Hero Card */}
+        <div className="relative w-full overflow-hidden rounded-2xl min-h-[300px] md:min-h-[400px] shadow-2xl shadow-primary/20 flex flex-col justify-end group">
+           <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{
+                  backgroundImage: `linear-gradient(0deg, rgba(13, 89, 242, 0.4) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQ89hlhzi9_G8_IxAh2Aty9M_YzDCOdxmBHAUo2LjCC4T1FSg_HqIJ3KSrWsUGdhWkV20UkFQz1j8oVGgxV8BUkXtbxKovWflZ3gfW6y0ntEQ7he7ZWi_pWs_BBOd2fok7zFyKbODywsLV1IG-B-SpW6PoCxNcCkEa54I36HUAfrnZ50PhQ8sErXVE8gEBM7QfHtCel23mH-04m-xFhwWu9yUUIml_Wx3LS8qAupmWdUHMc3PKOc_QcInHKpVTbcrHIrm4_l4WmEZ_")`
+                }}
+           ></div>
+           <div className="relative z-10 p-6 md:p-10">
+             <h2 className="text-5xl md:text-7xl font-work font-black leading-tight tracking-tighter uppercase drop-shadow-2xl">Our Services</h2>
+           </div>
         </div>
 
-        {/* 
-          Grid Response Strategy:
-          - Mobile: 1 col
-          - Tablet/Small Laptop (sm/md/lg): 2 cols for readability
-          - Large Desktop (xl): 4 cols
+        {/* Grid 
+            Scales from 1 -> 2 -> 3 -> 4 columns to avoid squashed cards
         */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
-          {leaders.map((leader) => (
-            <LeaderCard 
-              key={leader.name} 
-              name={leader.name}
-              role={leader.role}
-              description={leader.description}
-              image={leader.image}
-              alt={leader.alt}
-            />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          {items.map((item, idx) => (
+            <div key={idx} className="flex items-center gap-4 p-5 md:p-6 rounded-xl border border-primary/20 bg-primary/10 hover:bg-primary/20 transition-all cursor-default shadow-lg shadow-black/20">
+              <span className="material-symbols-outlined text-primary text-3xl shrink-0">{item.icon}</span>
+              <h3 className="text-white text-base md:text-lg font-bold leading-tight">{item.title}</h3>
+            </div>
           ))}
         </div>
-        
-        {/* Instruction for users */}
-        <div className="mt-8 text-center">
-          <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center justify-center gap-2">
-            <span className="material-symbols-outlined text-base">info</span>
-            <span className="hidden lg:inline">Hover over any card to learn more about our visionaries</span>
-            <span className="lg:hidden">Tap any card to learn more about our visionaries</span>
-          </p>
-        </div>
+
       </div>
     </div>
   );
 };
 
-export default Chapter2;
+export default Chapter3;
