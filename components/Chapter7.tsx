@@ -73,25 +73,22 @@ const Card: React.FC<CardProps> = ({ title, image, description, idealCandidates 
 
 const Chapter7: React.FC = () => {
   return (
-    <div className="min-h-[100dvh] w-full bg-white dark:bg-background-dark font-space py-20 px-4 md:px-10 lg:px-20">
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-12">
+    <div className="min-h-[100dvh] w-full bg-white dark:bg-background-dark font-space py-12 md:py-16 px-4 md:px-10 lg:px-20">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-8 md:gap-10">
         
         {/* Header */}
-        <div className="relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-center items-center text-center p-8 bg-cover bg-center"
+        <div className="relative rounded-3xl overflow-hidden min-h-[300px] md:min-h-[350px] flex flex-col justify-center items-center text-center p-6 md:p-8 bg-cover bg-center"
              style={{
                backgroundImage: `linear-gradient(rgba(16, 22, 34, 0.7) 0%, rgba(16, 22, 34, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAR6wM-qqLlxTR-nazPNNZPUX_nexREOWJjlD4s18IrUZl9N9DlvFvXv8fi39UWvmQyc7Kx883dQIQTJbH5HtTmmQJs9jCsjGqUGQv66CO8OTXYQWkq_IwOfhh08Bmsb9oXVl6Erq1dHJBhq7H9RzoE8O0x6gvdojVeeDFOLlUNjHaIyVPkZ1ky9bc5VBMKmxkrEpwfBqVBlUxb3jn1GX9MwZggA8RrVEu9U_qphvGmHuQAH9MRApOSmu5Xfeacib4qjydVvXtgW9B")`
              }}
         >
-          <span className="text-white font-mono text-sm tracking-[0.3em] uppercase bg-white/10 px-4 py-1 rounded-full mb-6 border border-white/20">Phase 07</span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
+          <span className="text-white font-mono text-xs md:text-sm tracking-[0.3em] uppercase bg-white/10 px-3 py-1 rounded-full mb-4 border border-white/20">Phase 07</span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
             The Internship That Changes Everything
           </h2>
-          <p className="text-gray-200 text-lg md:text-xl max-w-3xl leading-relaxed mb-8">
+          <p className="text-gray-200 text-base md:text-lg max-w-2xl leading-relaxed mb-6">
             We’re opening our doors to the next generation. Learn from journalists, engineers, PR experts, and creative directors. Build real campaigns. Use real AI tools.
           </p>
-          <button className="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-blue-600 transition-colors shadow-lg shadow-primary/20">
-            Explore Opportunities
-          </button>
         </div>
 
         {/* Roles Grid */}
@@ -122,6 +119,14 @@ const Chapter7: React.FC = () => {
                description="These interns will serve as the primary relationship managers for individual clients and media entities. They oversee strategic planning, project execution, and ensure client goals are met through the effective deployment of our technology and services."
                idealCandidates="Students studying Digital Marketing, MBA (Sales & Marketing), or those who possess exceptional communication and leadership skills."
              />
+           </div>
+           
+           {/* Instruction for users */}
+           <div className="mt-6 text-center">
+             <p className="text-gray-400 dark:text-gray-500 text-sm flex items-center justify-center gap-2">
+               <span className="material-symbols-outlined text-base">info</span>
+               <span>Click on any card to learn more about the role and ideal candidate profile</span>
+             </p>
            </div>
         </div>
 

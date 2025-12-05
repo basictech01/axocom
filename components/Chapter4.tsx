@@ -24,34 +24,34 @@ const Chapter4: React.FC = () => {
           
           {/* Left Column */}
           <div className="flex flex-col gap-4">
-             <div className="p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
-               <div className="flex justify-between items-center mb-2">
-                  <div className="text-right flex-1 mr-4">
+             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
+               <div className="flex xl:flex-row flex-col xl:justify-between items-center xl:mb-2">
+                  <div className="xl:text-right text-center flex-1 xl:mr-4 xl:order-1 order-2">
                     <h3 className="font-bold text-lg">Inputs</h3>
                     <p className="text-gray-400 text-sm">News, Social, Signals</p>
                   </div>
-                  <span className="material-symbols-outlined text-4xl text-cyan-400 group-hover:scale-110 transition-transform">database</span>
+                  <span className="material-symbols-outlined text-4xl text-cyan-400 group-hover:scale-110 transition-transform xl:order-2 order-1 mb-3 xl:mb-0">database</span>
                </div>
              </div>
              
-             <div className="p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
-               <div className="flex justify-between items-center mb-2">
-                  <div className="text-right flex-1 mr-4">
+             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
+               <div className="flex xl:flex-row flex-col xl:justify-between items-center xl:mb-2">
+                  <div className="xl:text-right text-center flex-1 xl:mr-4 xl:order-1 order-2">
                     <h3 className="font-bold text-lg">Pipelines</h3>
                     <p className="text-gray-400 text-sm">Processing, Tagging, Clustering</p>
                   </div>
-                  <span className="material-symbols-outlined text-4xl text-cyan-400 group-hover:scale-110 transition-transform">filter_alt</span>
+                  <span className="material-symbols-outlined text-4xl text-cyan-400 group-hover:scale-110 transition-transform xl:order-2 order-1 mb-3 xl:mb-0">filter_alt</span>
                </div>
              </div>
 
              {/* Knowledge Graph - Moved here for mobile/tablet stacked layout */}
-             <div className="xl:hidden p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
-                <div className="flex justify-between items-center mb-2">
-                   <div className="text-right flex-1 mr-4">
+             <div className="xl:hidden p-4 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
+                <div className="flex flex-col items-center mb-2">
+                   <span className="material-symbols-outlined text-4xl text-purple-500 group-hover:scale-110 transition-transform mb-3">share</span>
+                   <div className="text-center flex-1">
                      <h3 className="font-bold text-lg">Knowledge Graph</h3>
                      <p className="text-gray-400 text-sm">Relationship Maps</p>
                    </div>
-                   <span className="material-symbols-outlined text-4xl text-purple-500 group-hover:scale-110 transition-transform">share</span>
                 </div>
              </div>
           </div>
@@ -82,20 +82,20 @@ const Chapter4: React.FC = () => {
                 </div>
              </div>
 
-             <div className="p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
-                <div className="flex items-center mb-2">
-                   <span className="material-symbols-outlined text-4xl text-purple-500 mr-4 group-hover:scale-110 transition-transform">psychology</span>
-                   <div className="text-left flex-1">
+             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-purple-500/50 transition-all group cursor-default">
+                <div className="flex xl:flex-row flex-col items-center xl:mb-2">
+                   <span className="material-symbols-outlined text-4xl text-purple-500 xl:mr-4 group-hover:scale-110 transition-transform mb-3 xl:mb-0">psychology</span>
+                   <div className="xl:text-left text-center flex-1">
                      <h3 className="font-bold text-lg">AI Engines</h3>
                      <p className="text-gray-400 text-sm">Creative tools, Sentiment Analysis</p>
                    </div>
                 </div>
              </div>
 
-             <div className="p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
-                <div className="flex items-center mb-2">
-                   <span className="material-symbols-outlined text-4xl text-cyan-400 mr-4 group-hover:scale-110 transition-transform">dashboard</span>
-                   <div className="text-left flex-1">
+             <div className="p-4 xl:p-6 rounded-2xl border border-gray-700 bg-dark-surface/50 hover:border-cyan-400/50 transition-all group cursor-default">
+                <div className="flex xl:flex-row flex-col items-center xl:mb-2">
+                   <span className="material-symbols-outlined text-4xl text-cyan-400 xl:mr-4 group-hover:scale-110 transition-transform mb-3 xl:mb-0">dashboard</span>
+                   <div className="xl:text-left text-center flex-1">
                      <h3 className="font-bold text-lg">Outputs</h3>
                      <p className="text-gray-400 text-sm">Assets, Dashboards, Campaigns</p>
                    </div>
@@ -105,15 +105,6 @@ const Chapter4: React.FC = () => {
 
         </div>
 
-        <div className="mt-16 max-w-3xl mx-auto">
-          <div className="flex justify-between items-center mb-2 text-sm text-gray-400">
-             <span>System Status</span>
-             <span className="text-white font-bold">ONLINE</span>
-          </div>
-          <div className="w-full bg-gray-800 rounded-full h-1.5 overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-purple-500 to-cyan-400 w-[80%] animate-pulse"></div>
-          </div>
-        </div>
 
       </div>
     </div>

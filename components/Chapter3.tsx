@@ -45,22 +45,6 @@ const Chapter3: React.FC<Chapter3Props> = ({ onNext }) => {
           ))}
         </div>
 
-        {/* Footer Progress */}
-        <div className="flex flex-col gap-4 mt-8">
-           <div className="flex justify-between items-center text-white/60 text-sm font-medium">
-             <span className="font-mono tracking-widest uppercase text-xs">Phase 3 / 7</span>
-             <button 
-                onClick={onNext}
-                className="flex items-center gap-2 text-white hover:text-primary transition-colors"
-             >
-               Continue <span className="material-symbols-outlined">arrow_forward</span>
-             </button>
-           </div>
-           <div className="w-full bg-white/10 rounded-full h-1">
-             <div className="bg-primary w-[42%] h-full rounded-full"></div>
-           </div>
-        </div>
-
       </div>
     </div>
   );

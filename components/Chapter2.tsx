@@ -8,23 +8,30 @@ interface LeaderProps {
   alt: string;
 }
 
-const LeaderCard: React.FC<LeaderProps> = ({ name, role, description, image, alt }) => (
-  <div 
-    className="group relative flex flex-col justify-end overflow-hidden rounded-2xl aspect-[3/4] bg-cover bg-center transition-transform duration-500 hover:scale-[1.02]"
-    style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0,0,0,0) 100%), url("${image}")` }}
-    role="img"
-    aria-label={alt}
-  >
-    <div className="relative z-10 p-6 md:p-8">
-      <h3 className="font-serif text-2xl md:text-3xl font-bold leading-tight text-white mb-1">{name}</h3>
-      <p className="font-sans text-primary text-xs font-bold uppercase tracking-widest mb-4">{role}</p>
-      <div className="h-0.5 w-12 bg-primary mb-4 transition-all duration-300 group-hover:w-full"></div>
-      <p className="font-sans text-gray-300 text-sm leading-relaxed opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-        {description}
-      </p>
+const LeaderCard: React.FC<LeaderProps> = ({ name, role, description, image, alt }) => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
+  return (
+    <div 
+      className="group relative flex flex-col justify-end overflow-hidden rounded-2xl aspect-[3/4] sm:aspect-[4/5] md:aspect-[3/4] bg-cover bg-center transition-transform duration-500 hover:scale-[1.02] cursor-pointer"
+      style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0,0,0,0) 100%), url("${image}")` }}
+      role="img"
+      aria-label={alt}
+      onClick={() => setIsExpanded(!isExpanded)}
+      onMouseEnter={() => window.innerWidth >= 1024 && setIsExpanded(true)}
+      onMouseLeave={() => window.innerWidth >= 1024 && setIsExpanded(false)}
+    >
+      <div className="relative z-10 p-4 sm:p-5 md:p-6 lg:p-8">
+        <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold leading-tight text-white mb-1">{name}</h3>
+        <p className="font-sans text-primary text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4">{role}</p>
+        <div className={`h-0.5 w-12 bg-primary mb-3 sm:mb-4 transition-all duration-300 ${isExpanded ? 'w-full' : 'lg:group-hover:w-full'}`}></div>
+        <p className={`font-sans text-gray-300 text-xs sm:text-sm leading-relaxed transition-all duration-500 ${isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:translate-y-0'}`}>
+          {description}
+        </p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Chapter2: React.FC = () => {
   const leaders: LeaderProps[] = [
@@ -78,7 +85,7 @@ const Chapter2: React.FC = () => {
           - Tablet/Small Laptop (sm/md/lg): 2 cols for readability
           - Large Desktop (xl): 4 cols
         */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
           {leaders.map((leader) => (
             <LeaderCard 
               key={leader.name} 
@@ -89,6 +96,15 @@ const Chapter2: React.FC = () => {
               alt={leader.alt}
             />
           ))}
+        </div>
+        
+        {/* Instruction for users */}
+        <div className="mt-8 text-center">
+          <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center justify-center gap-2">
+            <span className="material-symbols-outlined text-base">info</span>
+            <span className="hidden lg:inline">Hover over any card to learn more about our visionaries</span>
+            <span className="lg:hidden">Tap any card to learn more about our visionaries</span>
+          </p>
         </div>
       </div>
     </div>

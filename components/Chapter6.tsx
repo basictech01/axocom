@@ -7,7 +7,7 @@ interface Chapter6Props {
 
 const Chapter6: React.FC<Chapter6Props> = ({ onPrev, onNext }) => {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background-dark font-space relative">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background-dark font-space relative py-10 md:py-16">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
         style={{
@@ -18,13 +18,13 @@ const Chapter6: React.FC<Chapter6Props> = ({ onPrev, onNext }) => {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
         <span className="text-white/60 font-mono text-sm tracking-[0.3em] uppercase mb-4 border-b border-white/20 pb-2">Phase 06</span>
-        <h2 className="text-5xl md:text-7xl font-black leading-tight text-white mb-8 tracking-tighter">
+        <h2 className="text-5xl md:text-7xl font-black leading-tight text-white mb-6 tracking-tighter">
           Why We Matter
         </h2>
         
-        <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+        <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
 
-        <p className="text-xl md:text-3xl text-gray-200 font-light leading-relaxed mb-12">
+        <p className="text-xl md:text-3xl text-gray-200 font-light leading-relaxed mb-8">
           Because stories shape decisions. Decisions shape society. And society shapes the future. 
           <br/><br/>
           <span className="font-bold text-white">AxoCom</span> stands at the intersection of tech, policy, culture, and creativity.

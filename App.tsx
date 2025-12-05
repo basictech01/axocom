@@ -6,7 +6,6 @@ import Chapter3 from './components/Chapter3';
 import Chapter4 from './components/Chapter4';
 import Chapter5 from './components/Chapter5';
 import Chapter6 from './components/Chapter6';
-import Chapter7 from './components/Chapter7';
 import Finale from './components/Finale';
 
 const App: React.FC = () => {
@@ -16,7 +15,7 @@ const App: React.FC = () => {
   // Scroll spy to update active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['prologue', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'finale'];
+      const sections = ['prologue', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'finale'];
       
       // We look for the section that occupies the middle of the screen
       const scrollPosition = window.scrollY + window.innerHeight / 2;
@@ -57,7 +56,7 @@ const App: React.FC = () => {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-1">
-          {['1', '2', '3', '4', '5', '6', '7'].map((num) => (
+          {['1', '2', '3', '4', '5', '6'].map((num) => (
             <button
               key={num}
               onClick={() => scrollTo(`chapter${num}`)}
@@ -73,10 +72,16 @@ const App: React.FC = () => {
           <div className="w-px h-6 bg-white/10 mx-2"></div>
           <button 
             onClick={() => scrollTo('finale')}
+            className="bg-primary-accent hover:bg-yellow-500 text-background-dark px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary-accent/20"
+          >
+            Partner Up
+          </button>
+          <a 
+            href="/careers.html"
             className="bg-primary hover:bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20"
           >
-            Join Us
-          </button>
+            Careers
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -87,7 +92,7 @@ const App: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 z-40 bg-background-dark transition-transform duration-300 lg:hidden flex flex-col pt-24 px-8 gap-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-           {['1', '2', '3', '4', '5', '6', '7'].map((num) => (
+           {['1', '2', '3', '4', '5', '6'].map((num) => (
             <button
               key={num}
               onClick={() => scrollTo(`chapter${num}`)}
@@ -99,10 +104,16 @@ const App: React.FC = () => {
           ))}
           <button 
              onClick={() => scrollTo('finale')}
-             className="mt-4 bg-primary text-white py-4 rounded-xl text-xl font-bold shadow-lg shadow-primary/30"
+             className="mt-4 bg-primary-accent text-background-dark py-4 rounded-xl text-xl font-bold shadow-lg shadow-primary-accent/30 text-center"
           >
-            Join the Revolution
+            Partner Up
           </button>
+          <a 
+             href="/careers.html"
+             className="bg-primary text-white py-4 rounded-xl text-xl font-bold shadow-lg shadow-primary/30 text-center"
+          >
+            Careers
+          </a>
       </div>
 
       {/* Main Content Sections */}
@@ -132,11 +143,7 @@ const App: React.FC = () => {
         </section>
 
         <section id="chapter6" className="min-h-[100dvh] relative">
-          <Chapter6 onPrev={() => scrollTo('chapter5')} onNext={() => scrollTo('chapter7')} />
-        </section>
-
-        <section id="chapter7" className="min-h-[100dvh] relative">
-          <Chapter7 />
+          <Chapter6 onPrev={() => scrollTo('chapter5')} onNext={() => scrollTo('finale')} />
         </section>
 
         <section id="finale" className="min-h-[100dvh] relative">

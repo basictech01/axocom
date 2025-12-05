@@ -1,16 +1,14 @@
 import React from 'react';
 
 const Planet = ({ 
-  size, 
-  distanceCSS, 
+  sizeClass,
   duration, 
   direction = 'normal',
   image,
   label,
   positionClass 
 }: { 
-  size: number, 
-  distanceCSS: string, 
+  sizeClass: string,
   duration: string, 
   direction?: 'normal' | 'reverse',
   image: string,
@@ -19,10 +17,8 @@ const Planet = ({
 }) => {
   return (
     <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none ${sizeClass}`}
         style={{ 
-          width: distanceCSS, 
-          height: distanceCSS, 
           animation: `orbit-rotate ${duration} linear infinite`,
           animationDirection: direction
         }}
@@ -32,7 +28,7 @@ const Planet = ({
           className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-cover bg-center border-2 border-white/10 shadow-[0_0_20px_0_rgba(255,255,255,0.1)] transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_0_30px_5px_rgba(255,255,255,0.3)] group-hover:border-white/50"
           style={{ 
             backgroundImage: `url("${image}")`,
-            animation: `orbit-rotate ${duration} linear infinite reverse`, // Counter-rotate to keep image upright
+            animation: `orbit-rotate ${duration} linear infinite`, // Counter-rotate to keep image upright
             animationDirection: direction === 'normal' ? 'reverse' : 'normal'
           }}
         ></div>
@@ -46,14 +42,14 @@ const Planet = ({
 
 const Chapter5: React.FC = () => {
   return (
-    <div className="min-h-[100dvh] w-full relative bg-background-dark overflow-hidden flex flex-col items-center justify-center font-space py-20 px-4">
+    <div className="min-h-[100dvh] w-full relative bg-background-dark overflow-hidden flex flex-col items-center justify-center font-space py-6 md:py-10 px-4">
       
       {/* Background Gradients & Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(13,89,242,0.15),rgba(255,255,255,0))]"></div>
       <div className="absolute inset-0 z-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/hexellence.png')]"></div>
 
       {/* Content Text */}
-      <div className="relative z-20 text-center max-w-4xl px-4 mb-12 pointer-events-none mt-10 md:mt-0 flex flex-col items-center">
+      <div className="relative z-20 text-center max-w-4xl px-4 mb-6 md:mb-8 pointer-events-none flex flex-col items-center">
         <span className="text-white/70 font-mono text-sm tracking-[0.3em] uppercase mb-4 border border-white/10 px-3 py-1 rounded-full">Phase 05</span>
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4 text-white drop-shadow-lg">
           Our Media Universe
@@ -71,39 +67,49 @@ const Chapter5: React.FC = () => {
               <span className="font-serif text-3xl md:text-5xl text-primary font-bold animate-pulse">A</span>
            </div>
 
-           {/* Orbit Rings - Responsive Sizes utilizing CSS min() */}
-           <div className="absolute border border-dashed border-white/5 rounded-full w-[160px] h-[160px] md:w-[280px] md:h-[280px]"></div>
-           <div className="absolute border border-dashed border-white/5 rounded-full w-[240px] h-[240px] md:w-[440px] md:h-[440px]"></div>
-           <div className="absolute border border-dashed border-white/5 rounded-full w-[340px] h-[340px] md:w-[600px] md:h-[600px]"></div>
-           <div className="absolute border border-dashed border-white/5 rounded-full w-[440px] h-[440px] md:w-[760px] md:h-[760px]"></div>
+           {/* Orbit Rings - Responsive Sizes */}
+           <div className="absolute border border-dashed border-white/20 rounded-full w-[160px] h-[160px] md:w-[280px] md:h-[280px]"></div>
+           <div className="absolute border border-dashed border-white/20 rounded-full w-[240px] h-[240px] md:w-[440px] md:h-[440px]"></div>
+           <div className="absolute border border-dashed border-white/20 rounded-full w-[340px] h-[340px] md:w-[600px] md:h-[600px]"></div>
+           <div className="absolute border border-dashed border-white/20 rounded-full w-[440px] h-[440px] md:w-[760px] md:h-[760px]"></div>
 
-           {/* Planets */}
+           {/* Planets - Each on its own orbit, matching the ring sizes */}
+           {/* Hillsquills - Innermost orbit (280px desktop / 160px mobile) */}
            <Planet 
-             size={16} distanceCSS="min(760px, 90vw)" duration="70s" direction="reverse"
-             image="https://lh3.googleusercontent.com/aida-public/AB6AXuCecd394l5PLk37IsiuahGjOsxYvsc37P2t-cKmRc_IBZGGKFTGtD8IWRn0qJGZqdgzrxS73vgOec-tXhpThqS_mzvW5mURYeE2cDvav-aoAsis6h_dcsg0sX0EMBq5bx_TqsDb15uyqQqrgHDE5Y2Yq-E4ctz-vAmcFXeBqP-bU2SqcXsFFfDS2jRrM0AvVj0HjheZicr4utbo0tmq21Vf60RBdPLN0yeO4yLkHJR6Cd2k9cZuogFvjHVtkqIX2zrZeaDAmN1WJcTy"
-             label="Lawmedy"
-             positionClass="bottom-1/2 left-8 -translate-y-1/2"
-           />
-
-           <Planet 
-             size={16} distanceCSS="min(600px, 70vw)" duration="55s"
-             image="https://lh3.googleusercontent.com/aida-public/AB6AXuCTg-a0Uk-JvVkLfMFkrNPlQBPzwWLo5_I8Po7VEbv7I1gejGbUb81A_D6npCvcqEkIS_5CMbNdqhNptBTWJru0U3PTWsPFyoBZyqMHB-cCSYbae1cvGbz9tyNihKWQL8KGH1OW9To12LUBqJR4VH0dWFatN5eBnJLnMMyKt7RRGuteC_9kKcSCnzS8bqvQHH39mtbk9YzNyWmGlwVOBxRQf87UqAplD5AcdnF2CdDQCQbhfMiLlCCxvEvzJ3gVIIYpoR5VFS8NufVC"
-             label="Tehelka India"
-             positionClass="bottom-1/2 -left-6 translate-y-1/2"
-           />
-
-            <Planet 
-             size={16} distanceCSS="min(440px, 50vw)" duration="40s" direction="reverse"
-             image="https://lh3.googleusercontent.com/aida-public/AB6AXuC1h9oex_tNDIO7KQyiFoM0BJb1ZIY7JqfkJ9QmeeHSPDLW6kkaa1GDrN3DQkmqFAO9NAZWoFp2wcXcLCEOpdnsSHO9z6zgCGYzSE_ZcMNDx0CLh809vPrm2lpGHkYU_q97jnpe93Ip1sEgQm8MslsXUc09G6MFS5Mbf7lOGctYBnHCdfxEWmOBxcDw0rEatLk-oGXsVk4fBU6m-gc49AC9SgTbm1WBoiItxYGsOcS4VUVqEW6si3dW3OBmHdeXbEF_1aKJErXLiO5Y"
-             label="India7Live"
-             positionClass="top-1/2 -right-6 -translate-y-1/2"
-           />
-           
-           <Planet 
-             size={16} distanceCSS="min(280px, 32vw)" duration="25s" 
+             sizeClass="w-[160px] h-[160px] md:w-[280px] md:h-[280px]"
+             duration="25s" 
              image="https://lh3.googleusercontent.com/aida-public/AB6AXuDu5dvPEqFwitHjRZwcorDkVJtPAJtjLbjc5imiJf8KTt11FBi8JsFuxoMua19m9uvHjbmbcjUOaWggorYyNTOhAlyZwP3OJgKPnZAF6TMksSFtKIZo5t3T_eCbYnXwdEIqbTuBtkgFs0_LtzAkBwAVyNKwvFTe9M26HVPCMzX8IFtGG2m-F53JTIPqpfGJtlThNY1E28uLKkbVlfYrg26cCmXz_viZ3kKbwGzuxC1akxXoAvrDIgPL3jLZZ_1d-t1WHtN_CDF_g5QZ"
              label="Hillsquills"
-             positionClass="-top-6 left-1/2 -translate-x-1/2"
+             positionClass="top-0 left-1/2"
+           />
+
+           {/* India7Live - Second orbit (440px desktop / 240px mobile) */}
+            <Planet 
+             sizeClass="w-[240px] h-[240px] md:w-[440px] md:h-[440px]"
+             duration="40s" 
+             direction="reverse"
+             image="https://lh3.googleusercontent.com/aida-public/AB6AXuC1h9oex_tNDIO7KQyiFoM0BJb1ZIY7JqfkJ9QmeeHSPDLW6kkaa1GDrN3DQkmqFAO9NAZWoFp2wcXcLCEOpdnsSHO9z6zgCGYzSE_ZcMNDx0CLh809vPrm2lpGHkYU_q97jnpe93Ip1sEgQm8MslsXUc09G6MFS5Mbf7lOGctYBnHCdfxEWmOBxcDw0rEatLk-oGXsVk4fBU6m-gc49AC9SgTbm1WBoiItxYGsOcS4VUVqEW6si3dW3OBmHdeXbEF_1aKJErXLiO5Y"
+             label="India7Live"
+             positionClass="top-0 left-1/2"
+           />
+           
+           {/* Tehelka India - Third orbit (600px desktop / 340px mobile) */}
+           <Planet 
+             sizeClass="w-[340px] h-[340px] md:w-[600px] md:h-[600px]"
+             duration="55s"
+             image="https://lh3.googleusercontent.com/aida-public/AB6AXuCTg-a0Uk-JvVkLfMFkrNPlQBPzwWLo5_I8Po7VEbv7I1gejGbUb81A_D6npCvcqEkIS_5CMbNdqhNptBTWJru0U3PTWsPFyoBZyqMHB-cCSYbae1cvGbz9tyNihKWQL8KGH1OW9To12LUBqJR4VH0dWFatN5eBnJLnMMyKt7RRGuteC_9kKcSCnzS8bqvQHH39mtbk9YzNyWmGlwVOBxRQf87UqAplD5AcdnF2CdDQCQbhfMiLlCCxvEvzJ3gVIIYpoR5VFS8NufVC"
+             label="Tehelka India"
+             positionClass="top-0 left-1/2"
+           />
+
+           {/* Lawmedy - Outermost orbit (760px desktop / 440px mobile) */}
+           <Planet 
+             sizeClass="w-[440px] h-[440px] md:w-[760px] md:h-[760px]"
+             duration="70s" 
+             direction="reverse"
+             image="https://lh3.googleusercontent.com/aida-public/AB6AXuCecd394l5PLk37IsiuahGjOsxYvsc37P2t-cKmRc_IBZGGKFTGtD8IWRn0qJGZqdgzrxS73vgOec-tXhpThqS_mzvW5mURYeE2cDvav-aoAsis6h_dcsg0sX0EMBq5bx_TqsDb15uyqQqrgHDE5Y2Yq-E4ctz-vAmcFXeBqP-bU2SqcXsFFfDS2jRrM0AvVj0HjheZicr4utbo0tmq21Vf60RBdPLN0yeO4yLkHJR6Cd2k9cZuogFvjHVtkqIX2zrZeaDAmN1WJcTy"
+             label="Lawmedy"
+             positionClass="top-0 left-1/2"
            />
       </div>
 
