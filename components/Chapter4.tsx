@@ -77,7 +77,7 @@ const Chapter5: React.FC = () => {
            <Planet 
              sizeClass="w-[160px] h-[160px] md:w-[280px] md:h-[280px]"
              duration="25s" 
-             image="https://lh3.googleusercontent.com/aida-public/AB6AXuDu5dvPEqFwitHjRZwcorDkVJtPAJtjLbjc5imiJf8KTt11FBi8JsFuxoMua19m9uvHjbmbcjUOaWggorYyNTOhAlyZwP3OJgKPnZAF6TMksSFtKIZo5t3T_eCbYnXwdEIqbTuBtkgFs0_LtzAkBwAVyNKwvFTe9M26HVPCMzX8IFtGG2m-F53JTIPqpfGJtlThNY1E28uLKkbVlfYrg26cCmXz_viZ3kKbwGzuxC1akxXoAvrDIgPL3jLZZ_1d-t1WHtN_CDF_g5QZ"
+             image="./images/hillsQuills.png"
              label="Hillsquills"
              positionClass="top-0 left-1/2"
            />
@@ -87,7 +87,7 @@ const Chapter5: React.FC = () => {
              sizeClass="w-[240px] h-[240px] md:w-[440px] md:h-[440px]"
              duration="40s" 
              direction="reverse"
-             image="https://lh3.googleusercontent.com/aida-public/AB6AXuC1h9oex_tNDIO7KQyiFoM0BJb1ZIY7JqfkJ9QmeeHSPDLW6kkaa1GDrN3DQkmqFAO9NAZWoFp2wcXcLCEOpdnsSHO9z6zgCGYzSE_ZcMNDx0CLh809vPrm2lpGHkYU_q97jnpe93Ip1sEgQm8MslsXUc09G6MFS5Mbf7lOGctYBnHCdfxEWmOBxcDw0rEatLk-oGXsVk4fBU6m-gc49AC9SgTbm1WBoiItxYGsOcS4VUVqEW6si3dW3OBmHdeXbEF_1aKJErXLiO5Y"
+             image="./images/india7.png"
              label="India7Live"
              positionClass="top-0 left-1/2"
            />
@@ -96,7 +96,7 @@ const Chapter5: React.FC = () => {
            <Planet 
              sizeClass="w-[340px] h-[340px] md:w-[600px] md:h-[600px]"
              duration="55s"
-             image="https://lh3.googleusercontent.com/aida-public/AB6AXuCTg-a0Uk-JvVkLfMFkrNPlQBPzwWLo5_I8Po7VEbv7I1gejGbUb81A_D6npCvcqEkIS_5CMbNdqhNptBTWJru0U3PTWsPFyoBZyqMHB-cCSYbae1cvGbz9tyNihKWQL8KGH1OW9To12LUBqJR4VH0dWFatN5eBnJLnMMyKt7RRGuteC_9kKcSCnzS8bqvQHH39mtbk9YzNyWmGlwVOBxRQf87UqAplD5AcdnF2CdDQCQbhfMiLlCCxvEvzJ3gVIIYpoR5VFS8NufVC"
+             image="./images/tehalka.png"
              label="Tehelka India"
              positionClass="top-0 left-1/2"
            />
@@ -106,7 +106,7 @@ const Chapter5: React.FC = () => {
              sizeClass="w-[440px] h-[440px] md:w-[760px] md:h-[760px]"
              duration="70s" 
              direction="reverse"
-             image="https://lh3.googleusercontent.com/aida-public/AB6AXuCecd394l5PLk37IsiuahGjOsxYvsc37P2t-cKmRc_IBZGGKFTGtD8IWRn0qJGZqdgzrxS73vgOec-tXhpThqS_mzvW5mURYeE2cDvav-aoAsis6h_dcsg0sX0EMBq5bx_TqsDb15uyqQqrgHDE5Y2Yq-E4ctz-vAmcFXeBqP-bU2SqcXsFFfDS2jRrM0AvVj0HjheZicr4utbo0tmq21Vf60RBdPLN0yeO4yLkHJR6Cd2k9cZuogFvjHVtkqIX2zrZeaDAmN1WJcTy"
+             image="./images/lawmeady.png"
              label="Lawmedy"
              positionClass="top-0 left-1/2"
            />
