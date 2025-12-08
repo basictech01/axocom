@@ -77,7 +77,7 @@ const Chapter5: React.FC = () => {
            <Planet 
              sizeClass="w-[160px] h-[160px] md:w-[280px] md:h-[280px]"
              duration="25s" 
-             image="./images/hillsQuills.png"
+             image="./images/hillsQuills.jpeg"
              label="Hillsquills"
              positionClass="top-0 left-1/2"
            />
