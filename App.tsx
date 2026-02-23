@@ -96,28 +96,27 @@ const App: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 z-40 bg-background-dark transition-transform duration-300 lg:hidden flex flex-col pt-24 px-8 gap-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-           {['1', '2', '3', '4', '5', '6'].map((num) => (
-            <button
-              key={num}
-              onClick={() => scrollTo(`chapter${num}`)}
-              className="text-3xl font-space font-bold text-left text-gray-400 hover:text-white border-b border-white/5 pb-4 flex justify-between items-center"
-            >
-              <span>Phase {num}</span>
-              <span className="text-sm font-mono opacity-50">0{num}</span>
-            </button>
-          ))}
-          <button 
-             onClick={() => scrollTo('finale')}
-             className="mt-4 bg-primary-accent text-background-dark py-4 rounded-xl text-xl font-bold shadow-lg shadow-primary-accent/30 text-center"
+        {['About Us', 'Services', 'Mote', 'Media', 'Why', 'Team'].map((title, num) => (
+          <button
+            key={title}
+            onClick={() => scrollTo(`chapter${num+1}`)}
+            className="text-2xl font-mono font-bold text-left text-gray-400 hover:text-white border-b border-white/5 pb-4 flex justify-between items-center"
           >
-            Partner Up
+            <span>{title}</span>
           </button>
-          <a 
-             href="/careers.html"
-             className="bg-primary text-white py-4 rounded-xl text-xl font-bold shadow-lg shadow-primary/30 text-center"
-          >
-            Careers
-          </a>
+        ))}
+        <button 
+          onClick={() => scrollTo('finale')}
+          className="mt-4 bg-primary-accent text-background-dark py-4 rounded-xl text-xl font-bold shadow-lg shadow-primary-accent/30 text-center"
+        >
+          Partner Up
+        </button>
+        <a 
+          href="/careers.html"
+          className="bg-primary text-white py-4 rounded-xl text-xl font-bold shadow-lg shadow-primary/30 text-center"
+        >
+          Careers
+        </a>
       </div>
 
       {/* Main Content Sections */}
