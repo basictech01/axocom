@@ -57,13 +57,6 @@ const Chapter2: React.FC = () => {
       alt: "Portrait of Parantap Bhatt"
     },
     {
-      name: "Akaash Sharma",
-      role: "Public Relations, Legal Communication, Crisis Management",
-      description: "Director at Witsolutions Private Limited, Advocate, and Public Relations expert with over 15 years of experience in brand management and PR.",
-      image: "images/akaashsharma.png",
-      alt: "Portrait of Akaash Sharma"
-    },
-    {
       name: "Pranav Pandey",
       role: "AI/ML Engineering, Data Systems, Technical Innovation",
       description: "Senior Software Engineer at LinkedIn, specializing in the technical architecture and development of AI and data-driven systems",
@@ -91,7 +84,7 @@ const Chapter2: React.FC = () => {
           - Tablet/Small Laptop (sm/md/lg): 2 cols for readability
           - Large Desktop (xl): 4 cols
         */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {leaders.map((leader) => (
             <LeaderCard 
               key={leader.name} 
